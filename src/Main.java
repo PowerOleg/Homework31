@@ -1,11 +1,14 @@
-import java.util.Scanner;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         Controller controller = new Controller();
         controller.greeting();
-        Filter filter = new Filter(controller.getFilterNumber());
-        filter.filterOut(controller.createArrayList());
+        List<Integer> list = controller.createArrayList();
+        controller.dataForFilter();
 
+        Filter filter = new Filter(controller.getFilterNumber());
+        filter.filterOut(list);
+        Logger.getInstance().log("Завершаем программу");
     }
 }

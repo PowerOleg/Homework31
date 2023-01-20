@@ -14,7 +14,7 @@ public class Logger {
     }
 
     public boolean log(String msg) {                                            //изменил void на boolean
-        System.out.println("[" + (LocalDateTime.now()).format(DateTimeFormatter.ofPattern("d.MM.uuuu  HH:mm:ss")) + " " + num++ + "] " + msg);
+        System.out.println("[" + (LocalDateTime.now()).format(DateTimeFormatter.ofPattern("d.MM.uuuu\tHH:mm:ss")) + " " + num++ + "] " + msg);
         return true;                                                                        //needs to complete
     }
 }
