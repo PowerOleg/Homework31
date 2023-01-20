@@ -10,7 +10,12 @@ public class Person {
             "Sopporo", "Osaka", "Delhi", "Mumbai", "Ahmedabad", "Thiruvananthapuram"};
 
 
-
+    public Person(PersonBuilder builder) {
+        this.name = builder.name;
+        this.surname = builder.surname;
+        this.age = builder.age;
+        this.address = builder.address;
+    }
 
     public void happyBirthday() {
         age++;
@@ -53,5 +58,30 @@ public class Person {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public static class PersonBuilder {
+        private String name;
+        private String surname;
+        private int age = -1;
+        private String address;
+
+        public PersonBuilder(String name, String surname) {
+            this.name = name;
+            this.surname = surname;
+        }
+        public PersonBuilder setAge(int age) {
+            this.age = age;
+            return this;
+        }
+
+        public PersonBuilder setAddress(String address) {
+            this.address = address;
+            return this;
+        }
+
+        public Person build() {
+            return new Person(this);
+        }
     }
 }
