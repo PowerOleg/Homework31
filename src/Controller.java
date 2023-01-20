@@ -6,7 +6,7 @@ public class Controller {
     protected final Scanner scanner = new Scanner(System.in);
     int arraySize;
     int arrayNumberLimiter;
-    int filterNumber;
+    int threshold;
 
 
     public void greeting() {
@@ -20,12 +20,11 @@ public class Controller {
 
         System.out.println("Теперь введите число-верхнюю границу для элементов списка, ниже которой элементы следует пропустить.");
         System.out.print(">>");
-        filterNumber = Integer.parseInt(scanner.nextLine());                   //обработать исключения
+        threshold = Integer.parseInt(scanner.nextLine());                   //обработать исключения
     }
 
     public List<Integer> createArrayList() {
         List<Integer> arrayList = new ArrayList<>();
-        int line;
         for (int i = 0; i < arraySize; i++) {
             arrayList.add((int) (Math.random() * arrayNumberLimiter));
         }
@@ -33,7 +32,7 @@ public class Controller {
     }
 
     public int getFilterNumber() {
-        return filterNumber;
+        return threshold;
     }
 }
 
