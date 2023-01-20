@@ -26,7 +26,7 @@ public class Controller {
     public boolean createArrayList() {
         int line;
         for (int i = 0; i < arraySize; i++) {
-            arrayList.add((int) (Math.random() * arrayNumberLimiter + 1));              //рандом включительно верхней границы
+            arrayList.add((int) (Math.random() * arrayNumberLimiter));              //рандом включительно верхней границы
         }
         return true;                                                                    //needs to complete
     }

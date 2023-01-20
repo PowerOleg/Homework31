@@ -1,33 +1,20 @@
-import java.util.List;
-import java.util.Scanner;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Logger {
-    protected List<String> arrayLog;                                            //нужен?
-    protected int num = 1;
     protected static Logger logger;
-
-
-
+    protected int num = 1;
 
     private Logger() {
     }
 
-    public boolean log(String msg) {                                            //изменил void на boolean
-        System.out.println("[" + num++ + "] " + msg);
-//        logger записываетк себе строку логов.
-
-//                line = "строка лога";                                               //1сделать как надо
-//        arrayList.add(line);
-
-return true;
-    }
     public static Logger getInstance() {
         if (logger == null) logger = new Logger();
         return logger;
     }
 
-
-
-
-
+    public boolean log(String msg) {                                            //изменил void на boolean
+        System.out.println("[" + (LocalDateTime.now()).format(DateTimeFormatter.ofPattern("d.MM.uuuu  HH:mm:ss")) + " " + num++ + "] " + msg);
+        return true;                                                                        //needs to complete
+    }
 }
