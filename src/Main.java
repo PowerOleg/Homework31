@@ -6,9 +6,12 @@ public class Main {
         controller.greeting();
         List<Integer> list = controller.createArrayList();
         controller.dataForFilter();
-
         Filter filter = new Filter(controller.getFilterNumber());
-        filter.filterOut(list);
+        if (controller.getFilterNumber() > 0) {
+            filter.filterOut(list);
+        } else {
+            System.out.println("Фильтрация отменена");
+        }
         Logger.getInstance().log("Завершаем программу");
     }
 }

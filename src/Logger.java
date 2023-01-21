@@ -13,8 +13,7 @@ public class Logger {
         return logger;
     }
 
-    public boolean log(String msg) {                                            //изменил void на boolean
+    public void log(String msg) {
         System.out.println("[" + (LocalDateTime.now()).format(DateTimeFormatter.ofPattern("d.MM.uuuu\tHH:mm:ss")) + " " + num++ + "] " + msg);
-        return true;                                                                        //needs to complete
     }
 }

@@ -16,20 +16,36 @@ public class Controller {
     public void greeting() {
         logger.log("Запускаем программу");
         logger.log("Просим пользователя ввести входные данные для списка");
-        System.out.println("Добрый день, пожалуйста введите размер списка(N) и верхнюю границу для значений в списке(M).");
-        System.out.println("Введите через пробел в формате \"N M\" ниже.");
+        System.out.println("Добрый день, пожалуйста введите размер списка(N) и верхнюю границу для значений в списке(M) через пробел.");
+        System.out.println("К примеру: \"10 20\"");
         System.out.print(">>");
-        String inputSizeAndNumberLimiter = scanner.nextLine();
-        String[] s = inputSizeAndNumberLimiter.split(" ");
-        arraySize = Integer.parseInt(s[0]);                                             //обработать исключения
-        arrayNumberLimiter = Integer.parseInt(s[1]);                                //обработать исключения
+        String[] s = {};
+        try {
+            String inputSizeAndNumberLimiter = scanner.nextLine();
+            s = inputSizeAndNumberLimiter.split(" ");
+            arraySize = Integer.parseInt(s[0]);
+
+            arrayNumberLimiter = Integer.parseInt(s[1]);
+        } catch (RuntimeException e) {
+            logger.log("Пользователь ввел некоректные данные, первое значние: " + s[0] + " второк значение: "
+                    + s[1]);
+            System.out.println("Не верный ввод");
+            greeting();
+        }
+
     }
 
     public void dataForFilter() {
         logger.log("Просим пользователя ввести входные данные для фильтрации");
         System.out.println("Пожалуйста введите верхнюю границу для элементов списка, ниже которой элементы следует пропустить.");
         System.out.print(">>");
-        threshold = Integer.parseInt(scanner.nextLine());                   //обработать исключения
+        try {
+            threshold = Integer.parseInt(scanner.nextLine());
+        } catch (RuntimeException e) {
+            System.out.println("Не верный ввод");
+            System.out.println("Фильтр не выставлен");
+            logger.log("Фильтр не выставлен. Фильтрация отменена");
+        }
     }
 
     public List<Integer> createArrayList() {
