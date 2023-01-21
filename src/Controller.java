@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 public class Controller {
     protected final Scanner scanner = new Scanner(System.in);
-    int arraySize;
-    int arrayNumberLimiter;
-    int threshold;
-    private Logger logger;
+    protected int arraySize;
+    protected int arrayNumberLimiter;
+    protected int threshold;
+    protected Logger logger;
 
     public Controller() {
         this.logger = Logger.getInstance();
